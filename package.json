@@ -32,13 +32,16 @@
     "koa-redis": "^4.0.0",
     "koa-router": "^7.4.0",
     "lodash": "^4.17.15",
+    "marked": "^0.8.0",
     "mongoose": "^5.8.3",
     "node-sass": "^4.13.0",
     "nodemailer": "^6.4.2",
     "nuxt": "^2.0.0",
     "passport-local": "^1.0.0",
+    "prismjs": "^1.18.0",
     "redis": "^2.8.0",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

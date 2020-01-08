@@ -2,15 +2,21 @@
   <div>
     <!-- <transition> -->
     <div class="figureBox">
-      <div class="figure-flex" v-for="(item, index) in figures" :key="item.src">
+      <div class="figure-flex" v-for="(item, index) in figures" :key="index">
         <figure @click="handleShow(index)">
           <img :src="item.src" alt />
           <figcaption>{{item.text}}</figcaption>
         </figure>
       </div>
     </div>
-    <div v-for="item in figures" :key="item.src">
-      <Pop v-if="item.isShow" :type="item.type" :title="item.text" :unmove="item.unmove">
+    <div v-for="item in figures" :key="item.type">
+      <Pop
+        v-if="item.isShow"
+        :type="item.type"
+        :title="item.text"
+        :unmove="item.unmove"
+        @closed="closed"
+      >
         <component :is="currentTabComponent" />
       </Pop>
     </div>
@@ -20,11 +26,13 @@
 <script>
 import Pop from './iconPor'
 import showMe from '../home/showMe'
+import setting from '../home/setting'
 import { homeIcon } from '../imgurls'
 export default {
   components: {
     Pop,
-    showMe
+    showMe,
+    setting
   },
   props: {
     close: [Function],
@@ -65,7 +73,7 @@ export default {
           src: homeIcon.setting,
           text: '设置',
           isShow: false,
-          child: '',
+          child: setting,
           type: 'setting'
         }
       ]

@@ -1,5 +1,5 @@
 <template>
-  <Windo :type="type" :title="title">
+  <Windo :type="type" :title="title" @onclose="closeWin()">
     <slot></slot>
   </Windo>
 </template>
@@ -26,8 +26,13 @@ export default {
       // node: document.createElement('div')
     }
   },
-  clearboth(e) {
-    e.stopPropagation()
+  methods: {
+    closeWin() {
+      this.$emit('closed')
+    },
+    clearboth(e) {
+      e.stopPropagation()
+    }
   }
 }
 </script>

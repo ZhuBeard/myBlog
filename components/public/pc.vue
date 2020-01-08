@@ -4,8 +4,15 @@
       <span>
         <img src="../../assets/img/logo.png" alt />
       </span>
-      <template v-for="item in nav">
-        <nuxt-link :to="item.herf" :key="item.text">{{item.text}}</nuxt-link>
+      <template v-for="(item, index) in nav">
+        <span
+          class="a"
+          @click="handleIndex(index)"
+          :class="item.indent ? 'nav-index': ''"
+          :key="item.href"
+        >
+          <nuxt-link :key="item.text" :to="item.herf">{{item.text}}</nuxt-link>
+        </span>
       </template>
     </nav>
     <div class="times">
@@ -38,7 +45,8 @@ export default {
         { indent: false, text: 'ABOUT', herf: '/about' }
       ],
       now: this.timer(),
-      time: ''
+      time: '',
+      index: ''
     }
   },
   methods: {
@@ -57,11 +65,6 @@ export default {
       newNav.forEach(t => (t.indent = false))
       newNav[index].indent = true
       this.nav = newNav
-      this.now = index
-      // this.setState({
-      //   nav:newNav,
-      //   now:index
-      // });
     },
     timeRe() {}
   }

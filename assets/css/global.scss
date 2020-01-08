@@ -215,7 +215,7 @@ body {
   background:linear-gradient(45deg, #e10522 0%, rgba(225, 5, 34, 0) 70%), linear-gradient(135deg, #3105d1 10%, rgba(49, 5, 209, 0) 80%), linear-gradient(225deg, #0adbd8 10%, rgba(10, 219, 216, 0) 80%), linear-gradient(315deg, #09f505 100%, rgba(9, 245, 5, 0) 70%)
 }
 .grid-bg .main,.grid-bg{
-  background: url('http://cdn.toofook.com/my-blog/main-bg.png');
+  background: url('//cdn.toofook.com/my-blog/main-bg.png');
 }
 
 .nav>span{
@@ -228,7 +228,7 @@ body {
   z-index: 1;
   box-sizing: border-box;
 }
-.nav span~a{
+.nav span~span.a{
   display: block;
   float: left;
   font-weight: bolder;
@@ -261,7 +261,25 @@ body {
     }
   }
 }
-.nav a.nav-index::after{
+.nav span~span.a a{
+  color: $color_black;
+  text-decoration: none;
+  display: inline-block;
+  &::after{
+    @include after(t);
+    @include center(28px, 28px);
+    @include box();
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border:3px solid $color_main;
+    background-color: #fff;
+    z-index: -1;
+    transform: scale(0);
+    transition:transform 0.15s cubic-bezier(.18,1.29,.89,1.24);
+  }
+}
+.nav span.nav-index a::after{
   background-color: $color_main;
   transition: none;
   transform: scale(1);
@@ -547,7 +565,7 @@ body {
   left: 50%;
   height: 34px;
   transform: translate(-50%,-50%);
-  background: url('http://cdn.toofook.com/my-blog/loading.gif') no-repeat center;
+  background: url('//cdn.toofook.com/my-blog/loading.gif') no-repeat center;
 }
 
 /*pop style*/
@@ -816,7 +834,7 @@ div[class*='select-style-']{
 .lazy{
   width: 100%;
   background-color: #f2f2f2;
-  background-image: url('http://cdn.toofook.com/my-blog/loading.gif');
+  background-image: url('//cdn.toofook.com/my-blog/loading.gif');
   background-position: center;
   background-repeat: no-repeat;
 }

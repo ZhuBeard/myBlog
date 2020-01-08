@@ -2,11 +2,10 @@
   <div class="text">
     <span :class="span1?'animate':''">Hey There</span>
     <br />
-    <span :class="span2?'animate':''">I'm Bruce.Au</span>
+    <span :class="span2?'animate':''">I'm 🐖🐖🐖🐖</span>
     <br />
     <span :class="span3?'animate':''">
-      ( σ'ω')σ
-      <strong>#Skr</strong>
+      <strong>hhhhhhh</strong>
       <i :class="cursor?cursor:''"></i>
     </span>
   </div>

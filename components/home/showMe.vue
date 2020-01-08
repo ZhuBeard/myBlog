@@ -3,19 +3,16 @@
     <ul class="settBox">
       <li>
         <div class="glitch">
-          <img src="{homeImg.glitch}" alt />
+          <img :src="require('@/assets/img/glitch.png')" alt />
         </div>
       </li>
-      <li>Mr.Ou Personal Web</li>
+      <li>🐖🐖🐖's Blog Web</li>
       <li>v2.1.0</li>
-      <li class="{Css.settLink}">
-        <a class="needsclick" onClick="{this.toAbout}">View More</a>
-      </li>
       <li>
         <hr align="center" width="60%" style="margin:'18px auto'" color="#b99f51" size="1" />
       </li>
       <li>
-        <a onClick="{this.showSign.bind(this)}">尚未登陆</a>
+        <a @click="showSign">尚未登陆</a>
       </li>
       <li>
         <!-- <em>{this.props.other.user.name}</em> -->

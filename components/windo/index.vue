@@ -2,7 +2,7 @@
 <template>
   <div ref="pops" :class="myClass">
     <p @mouseDown="handleDown" @mouseUp="handleUp" style="cursor: auto">
-      <a title="关闭"></a>
+      <a title="关闭" @click="onClose()"></a>
       {{title}}
     </p>
     <slot></slot>
@@ -20,7 +20,8 @@ export default {
   props: {
     noClose: Boolean,
     type: String,
-    title: String
+    title: String,
+    unmove: Boolean
   },
   computed: {
     myClass() {
@@ -71,6 +72,9 @@ export default {
     },
     handleUp() {
       this.isMove = false
+    },
+    onClose() {
+      this.$emit('onclose')
     }
   }
 }

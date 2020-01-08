@@ -13,7 +13,7 @@
       </li>
       <li>WWW.INSGALARY.CN</li>
       <li>
-        <a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备17162184号-2</a>
+        <a target="_blank" href="//www.miitbeian.gov.cn/">粤ICP备17162184号-2</a>
       </li>
     </ul>
   </footer>
