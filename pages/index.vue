@@ -2,11 +2,12 @@
   <div class="app-center">
     <myText />
     <myFooter />
-    <myIcon />
+    <myIcon :user="user" />
   </div>
 </template>
 
 <script>
+// import html2canvas from 'html2canvas'
 import myText from '~/components/home/text'
 import myFooter from '~/components/home/footer'
 import myIcon from '~/components/icons'
@@ -16,6 +17,12 @@ export default {
     myText,
     myFooter,
     myIcon
+  },
+  data() {
+    return {
+      user: 'zhuBeard',
+      modelType: 'ok'
+    }
   }
 }
 </script>

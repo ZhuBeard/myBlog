@@ -17,7 +17,7 @@
         :unmove="item.unmove"
         @closed="closed"
       >
-        <component :is="currentTabComponent" />
+        <component :is="currentTabComponent" :user="user" />
       </Pop>
     </div>
     <!-- </transition> -->
@@ -27,17 +27,19 @@
 import Pop from './iconPor'
 import showMe from '../home/showMe'
 import setting from '../home/setting'
+import Msg from '../home/msg'
 import { homeIcon } from '../imgurls'
 export default {
   components: {
     Pop,
     showMe,
-    setting
+    setting,
+    Msg
   },
   props: {
     close: [Function],
     title: String,
-    other: String
+    user: String
   },
   data() {
     return {
@@ -66,7 +68,7 @@ export default {
           src: homeIcon.msg,
           text: '留言',
           isShow: false,
-          child: '',
+          child: Msg,
           type: 'wathet'
         },
         {
@@ -120,3 +122,21 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.figureBox {
+  position: absolute;
+  z-index: 800;
+  top: 44px;
+  right: -14px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 480px) {
+  .figureBox {
+    flex-direction: row;
+    top: 1rem;
+    left: -1rem;
+  }
+}
+</style>
