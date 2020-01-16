@@ -1,27 +1,44 @@
 <template>
-  <Windo :type="type" :title="title" @onclose="closeWin()">
-    <slot></slot>
+  <Windo @onclose="closeWin()" v-bind="$attrs">
+    <slot name="header"></slot>
+    <slot name="title" :scopes="scopeVal">{{scopeVal2}}</slot>
+    <input type="text" v-on="inputListeners" v-model="testVal" />
   </Windo>
 </template>
 <script>
 import Windo from '../windo'
 export default {
+  inheritAttrs: false,
   components: {
     Windo
   },
-  props: {
-    type: String,
-    title: String
+  computed: {
+    inputListeners: function() {
+      var vm = this
+      // `Object.assign` 将所有的对象合并为一个新对象
+      return Object.assign(
+        {},
+        // 我们从父级添加所有的监听器
+        this.$listeners,
+        // 然后我们添加自定义监听器，
+        // 或覆写一些监听器的行为
+        {
+          // 这里确保组件配合 `v-model` 的工作
+          input: function(event) {
+            vm.$emit('update:value', event.target.value)
+          }
+        }
+      )
+    }
   },
-  // mounted() {
-  //   this.doc.appendChild(this.node)
-  // },
-  // beforeMount() {
-  //   this.doc.removeChild(this.node)
-  //   this.doc = null
-  // },
+  mounted() {
+    console.log(this.$attrs)
+  },
   data() {
     return {
+      testVal: this.$attrs.value,
+      scopeVal: '123',
+      scopeVal2: '456'
       // doc: document.querySelector('.main'),
       // node: document.createElement('div')
     }

@@ -10,15 +10,23 @@
       </div>
     </div>
     <div v-for="item in figures" :key="item.type">
-      <Pop
-        v-if="item.isShow"
-        :type="item.type"
-        :title="item.text"
-        :unmove="item.unmove"
-        @closed="closed"
-      >
-        <component :is="currentTabComponent" :user="user" />
-      </Pop>
+      <keep-alive>
+        <Pop
+          v-if="item.isShow"
+          :type="item.type"
+          :title="item.text"
+          :unmove="item.unmove"
+          @closed="closed"
+          :value.sync="testValue"
+        >
+          <template #header>
+            <component :is="currentTabComponent" :user="user" />
+          </template>
+          <template #title="{scopes: values}">
+            <h1>{{values}}</h1>
+          </template>
+        </Pop>
+      </keep-alive>
     </div>
     <!-- </transition> -->
   </div>
@@ -43,6 +51,7 @@ export default {
   },
   data() {
     return {
+      testValue: 'testValue',
       currentTabComponent: '',
       figures: [
         {
@@ -118,6 +127,14 @@ export default {
       //     }
       //   })
       //   .catch(err => console.log(err))
+    },
+    input(val) {
+      console.log(val)
+    }
+  },
+  watch: {
+    testValue(val) {
+      console.log(val)
     }
   }
 }

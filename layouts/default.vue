@@ -4,23 +4,29 @@
     <div class="page">
       <nuxt />
     </div>
-    <el-button
+    <Windo type="type" title="长按保存图片" @onclose="closeWin()" v-if="isShow">
+      <img :src="imgUrl" alt style="width: 90%;" />
+    </Windo>
+    <!-- <el-button
       type="primary"
       @click.native="clickGeneratePicture"
       style="position: absolute; bottom: 30%;"
-    >保存图片</el-button>
+    >保存图片</el-button>-->
   </div>
 </template>
 <script>
+import Windo from '@/components/windo'
 import myHeader from '@/components/public/header'
 export default {
   components: {
-    myHeader
+    myHeader,
+    Windo
   },
   data() {
     return {
       imgUrl: '',
-      html2canvas: null
+      html2canvas: null,
+      isShow: false
     }
   },
   beforeMount() {
@@ -33,13 +39,11 @@ export default {
         this.imgUrl = canvas.toDataURL('image/png')
         var eleLink = document.createElement('a')
         eleLink.href = this.imgUrl // 转换后的图片地址
-        eleLink.download = 'pictureName'
-        // 触发点击
-        document.body.appendChild(eleLink)
-        eleLink.click()
-        // 然后移除
-        document.body.removeChild(eleLink)
+        this.isShow = true
       })
+    },
+    closeWin() {
+      this.isShow = false
     }
   }
 }
