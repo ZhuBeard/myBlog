@@ -27,6 +27,11 @@ import windo from '@/components/windo'
 import Menu from '@/components/blog/menu'
 import Artical from '@/components/blog/artical'
 export default {
+  head() {
+    return {
+      title: this.currentArticle.title
+    }
+  },
   components: {
     windo,
     Menu,

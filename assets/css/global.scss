@@ -789,21 +789,21 @@ div[class*='select-style-']{
   transition: all 150ms ease-in;
 }
 
-/*react-transition-group*/
-.figure-enter {
+/*transition-group*/
+.figure-enter{
   opacity: 0.01;
   transform:translate3d(-50%,-50%,0) scale(0.6) ;
 }
-.figure-enter-active {
+.figure-enter-to {
   opacity: 1;
   transform: translate3d(-50%,-50%,0) scale(1) ;
   transition: all 150ms ease-out;
 }
-.figure-exit {
+.figure-leave {
   opacity: 1;
   transform:translate3d(-50%,-50%,0) scale(1) ;
 }
-.figure-exit-active {
+.figure-leave-active {
   opacity: 0.01;
   transform:translate3d(-50%,-50%,0) scale(0.6) ;
   transition: all 150ms ease-in;
@@ -818,11 +818,11 @@ div[class*='select-style-']{
   transform:  translate3d(-50%,0,0);
   transition: all 150ms ease-out;
 }
-.slide-exit {
+.slide-leave {
   opacity: 1;
   transform: translate3d(-50%,0,0);
 }
-.slide-exit-active {
+.slide-leave-active {
   opacity: 0.01;
   transform:  translate3d(-50%,-100%,0);
   transition: all 150ms ease-in;

@@ -19,6 +19,7 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
+  loadingIndicator: '@/components/loadingIndicator.html',
   /*
   ** Global CSS
   */
@@ -31,7 +32,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules

@@ -32,6 +32,9 @@ export default {
   },
   methods: {
     getMarkArtical() {
+      if (!this.data.body) {
+        return false
+      }
       const renderer = new marked.Renderer()
       marked.setOptions({
         highlight(code, lang) {
